@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel = "icon" href = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.j241RXggS8JEaVACw3ZQCQAAAA%26pid%3DApi&f=1" type = "image/x-icon">
+        <title>Guess the Number</title>
+    </head>
+    <body>
+        <h1>Guess the number</h1>
+        <input placeholder = "Number" inputmode = "numeric" id = "number" maxlength = "2" />
+        <br>
+        <button id = "guess" onclick = "guess()">Guess</button>
+        <br>
+        <h2 id = "high">Too high</h2>
+        <h2 id = "low">Too low</h2>
+        <h2 id = "right">Right number <br><a onclick="window.location.reload(true)">Play again</a></h2>
+        <br>
+        <script>
+            var max = 20; 
+var min = 0; 
+var random = Math.floor((Math.random() * ((max + 1) - min)) + min);
+
+function guess () {
+    var guess = document.getElementById ("number").value;
+
+    if (guess == random) {
+        document.getElementById ("right").style.display = "block";
+        document.getElementById ("low").style.display = "none";
+        document.getElementById ("high").style.display = "none";
+    } else if (guess > random) {
+        document.getElementById ("right").style.display = "none";
+        document.getElementById ("low").style.display = "none";
+        document.getElementById ("high").style.display = "block";
+    } else if (guess < random) {
+        document.getElementById ("right").style.display = "none";
+        document.getElementById ("low").style.display = "block";
+        document.getElementById ("high").style.display = "none";
+    }
+}
+        </script>
+        <style>
+            body {
+    background-color:purple;
+    text-align:center;
+    font-family:"Montserrat", sans-serif;
+    color:white;
+}
+
+#play {
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    position:fixed;
+    left:10%;
+    bottom:10px;
+}
+
+a {
+    color:skyblue;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+#high, #low, #right {
+    display:none;
+}
+
+#number, #guess {
+    background-color:white;
+    border:transparent;
+    border-radius:5px;
+    width:100px;
+    height:30px;
+    text-align:center;
+}
+
+#guess {
+    width:105px;
+    margin-top:5px;
+    background-color:white;
+}
+
+#guess:hover {
+    background-color:ghostwhite;
+}
+
+#guess:active {
+    transform:scale(0.95);
+}
+
+input, button {
+    outline:none;
+    transition:all 0.25s;
+    font-family:"Montserrat", sans-serif;
+}
+        </style>
+    </body>
+</html>
