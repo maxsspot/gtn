@@ -18,13 +18,13 @@
         <p id = "play">Numbers range from 0 - 20</p>
         <script>
             var max = 20; 
-var min = 0; 
-var random = Math.floor((Math.random() * ((max + 1) - min)) + min);
+            var min = 0; 
+            var random = Math.floor((Math.random() * ((max + 1) - min)) + min);
 
-function guess () {
-    var guess = document.getElementById ("number").value;
+                function guess () {
+                    var guess = document.getElementById ("number").value;
 
-    if (guess == random) {
+                    if (guess == random) {
         document.getElementById ("right").style.display = "block";
         document.getElementById ("low").style.display = "none";
         document.getElementById ("high").style.display = "none";
